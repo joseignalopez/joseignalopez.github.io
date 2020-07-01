@@ -11,6 +11,14 @@
     <script src="https://kit.fontawesome.com/6f9210d053.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="css/style.css">
     <title>José Ignacio López</title>
+
+    <!-- script emailjs -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@2.3.2/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function () {
+            emailjs.init("user_vFG5TdaOaiaPGuujLaNXp");
+        })();
+    </script>
 </head>
 
 <body class="bg-light">
@@ -76,7 +84,8 @@
                 programación, ya que desde chico siempre fui un apasionado de la tecnología y quería ser programador,
                 pero por un motivo u otro, en su momento no pude llevarlo a cabo. Tengo un muy buen manejo del idioma
                 inglés y una gran predisposición por adquirir nuevas habilidades, lo que considero que es esencial para
-                la profesión del programador. También cuento con un título terciario de Técnico Superior en Comercializción (Marketing).</p>
+                la profesión del programador. También cuento con un título terciario de Técnico Superior en
+                Comercializción (Marketing).</p>
         </article>
     </section>
 
@@ -92,7 +101,8 @@
                     <div class="col-md-8">
                         <div class="card-body">
                             <h5 class="card-title">Empleado Administrativo</h5>
-                            <p class="card-text">Funciones administrativas, facturación, sueldos, contacto con proveeores y clientes.</p>
+                            <p class="card-text">Funciones administrativas, facturación, sueldos, contacto con
+                                proveeores y clientes.</p>
                         </div>
                     </div>
                 </div>
@@ -120,7 +130,8 @@
                     <div class="col-md-8">
                         <div class="card-body">
                             <h5 class="card-title">Encargado Principal</h5>
-                            <p class="card-text">Realización de proyectos de decretos, confección de cédulas y oficios.</p>
+                            <p class="card-text">Realización de proyectos de decretos, confección de cédulas y oficios.
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -138,7 +149,8 @@
                     </div>
                     <div class="card-body">
                         <h5 class="card-title">Técnico Superior en Comercialización</h5>
-                        <p class="card-text">Carrera de 3 años de técnico en Marketing, donde aprendí sobre estadísticas y comercialización de marcas y productos.</p>
+                        <p class="card-text">Carrera de 3 años de técnico en Marketing, donde aprendí sobre estadísticas
+                            y comercialización de marcas y productos.</p>
                         <p><strong>Estado: </strong>Completo</p>
 
                     </div>
@@ -152,7 +164,8 @@
                     </div>
                     <div class="card-body">
                         <h5 class="card-title">Abogacía</h5>
-                        <p class="card-text">Carrera de grado de 5 años con título de validez nacional. Orientación empresas. Promedio 8.14</p>
+                        <p class="card-text">Carrera de grado de 5 años con título de validez nacional. Orientación
+                            empresas. Promedio 8.14</p>
                         <p><strong>Estado: </strong>Completo</p>
 
                     </div>
@@ -166,7 +179,8 @@
                     </div>
                     <div class="card-body">
                         <h5 class="card-title">Full Stack Developer</h5>
-                        <p class="card-text">Desarrollo web con manejo de HTML5, CCS, BOOTSTRAP y JAVASCRIPT. Manejo de GIT, GITHUB y GITLAB, asi como de la metodologia Agility.</p>
+                        <p class="card-text">Desarrollo web con manejo de HTML5, CCS, BOOTSTRAP y JAVASCRIPT. Manejo de
+                            GIT, GITHUB y GITLAB, asi como de la metodologia Agility.</p>
                         <p><strong>Estado: </strong>En curso</p>
                     </div>
                 </div>
@@ -263,24 +277,53 @@
     </section>
     <section class="container">
         <h2 class="display-4 text-center my-3" id="contacto">Contacto</h2>
-        <form class="shadow p-3 mb-5 bg-white rounded mt-4" action="error404.html">
+        <form class="shadow p-3 mb-5 bg-white rounded mt-4" onsubmit="validarForm(event)">
             <div class="form-group">
                 <label>Nombre y apellido</label>
-                <input type="text" placeholder="Tu nombre" class="form-control" required>
+                <input type="text" placeholder="Tu nombre" class="form-control" onblur="validarTexto(this)" id="nombre"
+                    required>
+                <div class="invalid-feedback">
+                    Debe ingresar un nombre
+                </div>
+                <div class="valid-feedback"></div>
             </div>
             <div class="form-group">
                 <label>Empresa</label>
-                <input type="text" placeholder="Indique su empresa" class="form-control">
+                <input type="text" placeholder="Indique su empresa" class="form-control" onblur="validarTexto(this)"
+                    id="empresa">
+                <div class="invalid-feedback">
+                    Debe ingresar el nombre de la empresa
+                </div>
+                <div class="valid-feedback"></div>
             </div>
             <div class="form-group">
-                <label for="exampleInputEmail1">Email</label>
-                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-                    placeholder="tudireccion@correo.com" required>
+                <label>Email</label>
+                <input type="email" class="form-control" id="email" placeholder="tudireccion@correo.com"
+                    onblur="validarEmail(this)" required>
+                <div class="invalid-feedback">
+                    Debe ingresar una dirección válida de correo
+                </div>
+                <div class="valid-feedback"></div>
+            </div>
+            <div class="form-group">
+                <label>Teléfono</label>
+                <input type="number" class="form-control" id="telefono" onblur="validarTel(this)"
+                    placeholder="3812233445" required>
+                <div class="invalid-feedback">
+                    Debe ingresar un número de teléfono
+                </div>
+                <div class="valid-feedback"></div>
             </div>
             <div class="form-group">
                 <label>Consulta</label>
-                <textarea rows="4" placeholder="Ingrese su consulta" class="form-control" required></textarea>
+                <textarea rows="4" placeholder="Ingrese su consulta" class="form-control" onblur="validarConsulta(this)"
+                    id="consulta" required></textarea>
+                <div class="invalid-feedback">
+                    Su consulta debe tener al menos 10 caracteres
+                </div>
+                <div class="valid-feedback"></div>
             </div>
+            <div class="alert alert-info my-4 d-none" role="alert" id="envioConsulta"></div>
             <button type="submit" class="btn btn-primary"><strong>Enviar</strong></button>
         </form>
     </section>

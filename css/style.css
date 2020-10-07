@@ -1,21 +1,56 @@
-.fondo{
-    background-color: #08AEEA;
-    background-image: linear-gradient(0deg, rgb(60, 181, 224) 0%, #2a62f5 100%);
+.fondo {
+  background: rgb(114, 142, 250);
+  background: linear-gradient(
+    344deg,
+    rgba(114, 142, 250, 1) 0%,
+    rgba(94, 117, 209, 1) 0%,
+    rgba(14, 21, 112, 1) 100%
+  );
 }
 
-.row{
-    justify-content: space-evenly;
+.grow {
+  transition: all 0.2s ease-in-out;
+}
+.grow:hover {
+  transform: scale(1.05);
 }
 
-.card{
-    padding: 0px;
-
+a {
+  color: black;
+}
+a:hover {
+  color: black;
 }
 
-.card-body{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
+.text-primary {
+  color: rgb(38, 45, 138) !important;
+}
+
+.row {
+  justify-content: space-evenly;
+}
+
+.card {
+  padding: 0px;
+}
+
+.rounded {
+  border-radius: 10px !important;
+}
+
+.card-body {
+  display: flex;
+  flex-direction: column;
+}
+
+.btn-primary {
+  background-color: rgb(38, 45, 138) !important;
+  border: none !important;
+  transition: all 0.2s ease-in-out;
+}
+
+.btn-primary:hover {
+  filter: opacity(90%);
 }
 
 /* ocultar flechas del input number */
@@ -25,8 +60,13 @@ input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
-
 /* Firefox */
-input[type=number] {
+input[type="number"] {
   -moz-appearance: textfield;
 }
+
+/* @media (min-width: 600px){
+  .rounded{
+    border-radius: 5px !important;
+  }
+} */

@@ -1,5 +1,4 @@
 function validarTexto(input) {
-  // con esta función, al tener el valor "this" en el html, el parámetro, en este caso input, toma todo el objeto del evento que llama a la función
   if (input.value == "") {
     input.className = "form-control is-invalid";
     return false;
@@ -10,8 +9,6 @@ function validarTexto(input) {
 }
 
 function validarEmail(input) {
-  // como se escriben los mails: texto@dominio.algo
-  // expresión regular:
   let expresion = /\w+@\w+\.[a-z]{2,}$/;
   if (input.value != "" && expresion.test(input.value)) {
     input.className = "form-control is-valid";
@@ -42,9 +39,9 @@ function validarConsulta(input) {
   }
 }
 
-// validar todo el formulario
+
 function validarForm(e) {
-  e.preventDefault(); // evita que el submit refresque la página
+  e.preventDefault(); 
   console.log("desde validarForm");
   if (
     validarTexto(document.getElementById("nombre")) &&
@@ -57,9 +54,9 @@ function validarForm(e) {
   }
 }
 
+// envío de la consulta por emailjs
 function enviarMail() {
   let template_params = {
-    // esto es un objeto
     from_name: document.getElementById("nombre").value,
     message_html: `Mensaje: ${
       document.getElementById("consulta").value
